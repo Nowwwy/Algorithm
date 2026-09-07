@@ -1,14 +1,10 @@
 T = 10
 
 for test_case in range(1, T + 1):
-  M = int(input())
 
-  board = []
-  cnt = 0
-
-  for _ in range(8):
-    board.append(input())
-
+  char = input()
+  text = input()
+  
   for i in range(8):
     for j in range(8 - M + 1):
       word = board[i][j:j + M]
