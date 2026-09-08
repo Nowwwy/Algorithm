@@ -25,4 +25,5 @@ for test_case in range(1, T + 1):
             if word == word[::-1]:
                 result.append(word)
 
-    print(f'#{test_case} {result}')
+    real_result = ''.join(result)
+    print(f'#{test_case} {real_result}')

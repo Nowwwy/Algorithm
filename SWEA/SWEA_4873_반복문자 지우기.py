@@ -2,21 +2,13 @@ T = int(input())
 
 for test_case in range(1, T + 1):
 
-    text = list(input())
-    top = -1
+    text = input().strip()
     stack = []
 
-    for i in range(len(text)):
-        if text[i] not in stack:
-            stack.append()
-            top += 1
+    for i in text:
+        if stack and stack[-1] == i:
+            stack.pop()
+        else:
+            stack.append(i)
 
-        elif text[i] in stack:
-            if stack[i] == stack[top]:
-                stack.pop()
-                stack.pop()
-                top -= 2
-
-    result = len(stack)
-
-    print(f'#{test_case} {result}')
+    print(f'#{test_case} {len(stack)}')
