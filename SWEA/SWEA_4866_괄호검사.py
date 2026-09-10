@@ -1,26 +1,29 @@
-txt = input()
-pair = {')':'(','}':'{'}
-top = -1
-stack = [0] * 100
+T = int(input())
 
-ans = 1
+for test_case in range(1, T + 1):
+    txt = input()
+    pair = {')':'(','}':'{'}
+    top = -1
+    stack = [0] * 100
 
-for x in txt:
-    if x in '{(':
-        top += 1
-        stack[top] = x
-    elif x in ')}':
-        if top == -1:
-            ans = 0
-            break
-        else:
-            top -= 1
-            tmp = stack[top + 1]
+    ans = 1
+
+    for x in txt:
+        if x in '{(':
+            top += 1
+            stack[top] = x
+        elif x in ')}':
+            if top == -1:
+                ans = 0
+                break
+            else:
+                top -= 1
+                tmp = stack[top + 1]
             if pair[x] != tmp:
                 ans = 0
                 break
 
-if top != -1:
-    ans = 0
+    if top != -1:
+        ans = 0
 
-print(ans)
+    print(f'#{test_case} {ans}')
